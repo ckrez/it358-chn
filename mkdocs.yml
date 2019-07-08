@@ -1,0 +1,16 @@
+site_name: 2019 STINGAR Workshop Quickstart Guide
+site_url: http://stingar-quickstart-workshop.colab.duke.edu
+theme: readthedocs
+docs_dir: docs
+markdown_extensions:
+- markdown.extensions.admonition
+pages:
+    - 'Using SSH': index.md
+    - 'Prepare your hosts': preparing.md
+    - 'Building CHN Server': build_server.md
+    - 'Configuring and Exploring CHN Server': configuring_chn.md
+    - 'Deploying Your First Honeypot': first_honeypot.md
+    - 'Setting Up Logging for Honeypot Data': configuring_logging.md
+    - 'Setting Up Logging to CIFv3': configuring_cif.md
+    - 'Finishing up': final.md
+
