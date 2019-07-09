@@ -67,7 +67,7 @@ also upgrade all packages. After the package is installed, we'll ensure our ubun
 that docker is set to start on boot. Finally, we'll reboot the system to ensure a clean starting point.
 
 Paste the following line into the terminal window for both the CHN Server host as well as the honeypot host. You will
- be prompted to provide your password as we're running the pivelleged command `sudo`, which means "run as super-user".
+ be prompted to provide your password as we're running the privileged command `sudo`, which means "run as super-user".
 
 ```bash
 sudo apt update && sudo apt upgrade -y && sudo apt install docker-compose -y && sudo usermod -aG docker ubuntu && sudo systemctl enable docker && sudo reboot
