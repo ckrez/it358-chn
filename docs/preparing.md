@@ -70,7 +70,7 @@ Paste the following line into the terminal window for both the CHN Server host a
  be prompted to provide your password as we're running the privileged command `sudo`, which means "run as super-user".
 
 ```bash
-sudo apt update && sudo apt upgrade -y && sudo apt install docker-compose -y && sudo usermod -aG docker ubuntu && sudo systemctl enable docker && sudo reboot
+sudo apt update && sudo apt upgrade -y && sudo apt install -y docker-compose jq && sudo usermod -aG docker ubuntu && sudo systemctl enable docker && sudo reboot
 ```
 
 Once your host reboots, your session will end an you will need to wait approximately 30 seconds and then reconnect to
