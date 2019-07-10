@@ -2,7 +2,7 @@ Setting Up Logging for Honeypot Data
 ====================================
 
 ## Connect to the CHN Server Host
-SSH into your CHN Server instance and cd to to the "chnserver" directory.
+If you do not already have an SSH session established with your workshop-chn-server, SSH into your CHN Server instance.
 
 On Mac/Linux:
 ```bash
@@ -18,27 +18,25 @@ ssh -l ubuntu -p 4222 workshop-chn-server-$env:TEAM.security.duke.edu
 Like when starting CHN Server, simply run the following commands:
 
 ```bash
-cd /opt/chnserver
-python3 guided_docker_compose.py
+cd /opt/chnserver && python3 guided_docker_compose.py
 ```
 
-Answer "n" when asked about reconfiguring CHN Server and hpfeeds-cif.
-
-Feel free to fill in "splunk" for the Logging Format
+Answer "n" when asked about reconfiguring CHN Server.
+Answer "n" when asked about logging to a remote CIFv3 server.
+Answer "y" when asked about logging to a local file.
+Fill in "splunk" for the Logging Format
 
 ```text
-Previous chn-server.sysconfig file detected. Do you wish to reconfigure? [Y/n]: n
-Previous hpfeeds-cif.sysconfig file detected. Do you wish to reconfigure? [Y/n]: n
-Do you wish to enable logging to a local file? [Y/n]: Y
-Please enter a Certificate Strategy.  This should be one of:
+Previous chn-server.sysconfig file detected. Do you wish to reconfigure? [y/N]: n
+Do you wish to enable logging to a remote CIFv3 server? [y/N]: n
+Do you wish to enable logging to a local file? [y/N]: y
 
 splunk: Comma delimited key/value logging format for use with Splunk
 json: JSON formatted log format
 arcsight: Log format for use with ArcSight SIEM appliances
-json_raw: ('Raw JSON output from hpfeeds. More verbose that other formats,', 'but also not normalized. Can generate a large amount of data.')
+json_raw: Raw JSON output from hpfeeds. More verbose that other formats, but also not normalized. Can generate a large amount of data.
 Logging Format: splunk
 Wrote file to config/sysconfig/hpfeeds-logger.sysconfig
-Updated docker-compose.yml
 ```
 
 ## Start the hpfeeds-logger container
