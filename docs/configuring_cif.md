@@ -119,7 +119,7 @@ Next you need to create a new file, `/home/ubuntu/.cif.yml`, with the following 
 
 ```yaml
 token: <same value as CIF_TOKEN>
-remote: https://stingar-cif-sandbox.security.duke.edu
+remote: https://cif-server.security.duke.edu
 no_verify_ssl: true
 ```
 
