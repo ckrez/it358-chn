@@ -56,11 +56,15 @@ containers in their current state.
 docker-compose stop
 ```
 
+(Take a look at the container state again by running `docker-compose ps`)
+
 If you wish to remove a specific container (after stopping it) you can remove it with the `docker-compose rm` command:
 
 ```bash
 docker-compose rm chnserver
 ```
+
+(Take a look at the container state again by running `docker-compose ps`)
 
 You can stop and remove *all* running containers with the following command. If you have made any changes to the 
 running containers themselves (not recommended!), this will effectively reset the containers.
@@ -69,6 +73,8 @@ running containers themselves (not recommended!), this will effectively reset th
 docker-compose down
 ```
 
+(Take a look at the container state again by running `docker-compose ps`)
+
 Now let's bring all our containers back up again:
 
 ```bash
@@ -76,6 +82,8 @@ docker-compose up -d
 ```
 
 This time the process is much faster, as the images are already stored locally. 
+
+(Take a look at the container state again by running `docker-compose ps`)
 
 ## (Re)set the web administrator password
 
