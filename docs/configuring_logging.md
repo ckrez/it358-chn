@@ -22,8 +22,11 @@ cd /opt/chnserver && python3 guided_docker_compose.py
 ```
 
 Answer "n" when asked about reconfiguring CHN Server.
+
 Answer "n" when asked about logging to a remote CIFv3 server.
+
 Answer "y" when asked about logging to a local file.
+
 Fill in "splunk" for the Logging Format
 
 ```text
@@ -73,11 +76,11 @@ Now, attempt to connect to the honeypot SSH port:
 
 On Mac/Linux:
 ```bash
-ssh -l ubuntu -p 2222 workshop-chn-hp-${TEAM}.security.duke.edu 
+ssh -l attacker -p 2222 workshop-chn-hp-${TEAM}.security.duke.edu 
 ```
 On Windows:
 ```bash
-ssh -l ubuntu -p 2222 workshop-chn-hp-$env:TEAM.security.duke.edu 
+ssh -l attacker -p 2222 workshop-chn-hp-$env:TEAM.security.duke.edu 
 ```
 
 If you're using Putty, you can use the "Load" button for your normal workshop-chn-hp connection, and change the port 
