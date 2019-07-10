@@ -71,11 +71,11 @@ Now, attempt to connect to the honeypot SSH port:
 
 On Mac/Linux:
 ```bash
-ssh -l ubuntu -p 2222 workshop-hp-server-${TEAM}.security.duke.edu 
+ssh -l ubuntu -p 2222 workshop-chn-hp-${TEAM}.security.duke.edu 
 ```
 On Windows:
 ```bash
-ssh -l ubuntu -p 2222 workshop-hp-server-$env:TEAM.security.duke.edu 
+ssh -l ubuntu -p 2222 workshop-chn-hp-$env:TEAM.security.duke.edu 
 ```
 
 Now examine the hpfeeds-cif logs to see if you see a new event:

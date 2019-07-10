@@ -75,14 +75,14 @@ Now, attempt to connect to the honeypot SSH port:
 
 On Mac/Linux:
 ```bash
-ssh -l ubuntu -p 2222 workshop-hp-server-${TEAM}.security.duke.edu 
+ssh -l ubuntu -p 2222 workshop-chn-hp-${TEAM}.security.duke.edu 
 ```
 On Windows:
 ```bash
-ssh -l ubuntu -p 2222 workshop-hp-server-$env:TEAM.security.duke.edu 
+ssh -l ubuntu -p 2222 workshop-chn-hp-$env:TEAM.security.duke.edu 
 ```
 
-If you're using Putty, you can use the "Load" button for your normal workshop-hp-server connection, and change the port 
+If you're using Putty, you can use the "Load" button for your normal workshop-chn-hp connection, and change the port 
 before connecting to simulate an attack.
 
 You can now `cat /opt/chnserver/storage/hpfeeds-logs/chn-splunk.log` the log file again, and you should see data about your 

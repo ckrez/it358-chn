@@ -48,7 +48,7 @@ Prepare your honeypot vm for deploying a new honeypot. First, let's stop the exi
 information:
 
 ```bash
-ssh -l ubuntu -p 4222 workshop-hp-server-${TEAM}.security.duke.edu
+ssh -l ubuntu -p 4222 workshop-chn-hp-${TEAM}.security.duke.edu
 cd ~
 docker-compose down
 docker system prune

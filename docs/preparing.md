@@ -46,11 +46,11 @@ the hostname.
 
 On Mac/Linux:
 ```bash
-ssh -l ubuntu -p 4222 workshop-hp-server-${TEAM}.security.duke.edu 
+ssh -l ubuntu -p 4222 workshop-chn-hp-${TEAM}.security.duke.edu 
 ```
 On Windows:
 ```bash
-ssh -l ubuntu -p 4222 workshop-hp-server-$env:TEAM.security.duke.edu 
+ssh -l ubuntu -p 4222 workshop-chn-hp-$env:TEAM.security.duke.edu 
 ```
 
 To change your password issue this command:
@@ -89,11 +89,11 @@ and
 
 On Mac/Linux:
 ```bash
-ssh -l ubuntu -p 4222 workshop-hp-server-${TEAM}.security.duke.edu 
+ssh -l ubuntu -p 4222 workshop-chn-hp-${TEAM}.security.duke.edu 
 ```
 On Windows:
 ```bash
-ssh -l ubuntu -p 4222 workshop-hp-server-$env:TEAM.security.duke.edu 
+ssh -l ubuntu -p 4222 workshop-chn-hp-$env:TEAM.security.duke.edu 
 ```
 
 *A Note on Editors*

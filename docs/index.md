@@ -67,7 +67,7 @@ connection!
 
 ![Putty Password Prompt](img/putty_password_promt.png)
 
-Repeat this process to build a profile for your honeypot server as well (i.e., `workshop-hp-server-0.security.duke.edu`)
+Repeat this process to build a profile for your honeypot server as well (i.e., `workshop-chn-hp-0.security.duke.edu`)
 
 ## Mac OS X
 On Mac OS X, you can simply open the Terminal.app and issue the commands provided in the workshop. A shortcut is to 
