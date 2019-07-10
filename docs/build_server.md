@@ -7,7 +7,7 @@ Connect to your workshop-chn-server host.
 Prepare to install CHN Server by creating the directory for CHN Server files.
 
 ```bash
-sudo apt install -y python3 python3-pip && sudo pip3 install validators && sudo git clone https://github.com/CommunityHoneyNetwork/chn-quickstart.git chnserver && sudo chown -R ubuntu:docker /opt/chnserver
+sudo apt install -y python3 python3-pip && sudo pip3 install validators && cd /opt && sudo git clone https://github.com/CommunityHoneyNetwork/chn-quickstart.git chnserver && sudo chown -R ubuntu:docker /opt/chnserver
 ```
 
 ### Build CHN Server
