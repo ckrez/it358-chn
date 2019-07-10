@@ -94,9 +94,11 @@ set the password, using `admin@localhost` as the email address.
 docker-compose exec chnserver python /opt/manual_password_reset.py
 ```
 
-After setting your password, go ahead an log into the web portal using the "admin@localhost" credential with the 
+After setting your password, REFRESH your CHN login screen and log into the web portal using the "admin@localhost" credential with the 
 password you just set at `https://workshop-chn-TEAM.security.duke.edu` (don't forget to subsitute your number for 
 TEAM!).
+
+
 
 
 ![Screenshot 1](img/chn_deploy_1.png)
