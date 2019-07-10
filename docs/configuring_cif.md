@@ -117,11 +117,18 @@ sudo apt install python-pip -y && sudo pip install 'cifsdk>=3.0.0,<4.0'
 Next you need to create a new file, `/home/ubuntu/.cif.yml`, with the following contents. Remember to use either nano
  or vim to create this file:
 
+Create the file:
+```bash
+nano /home/ubuntu/.cif.yml
+```
+
+Then paste in these contents:
 ```yaml
 token: <same value as CIF_TOKEN>
 remote: https://cif-server.security.duke.edu
 no_verify_ssl: true
 ```
+Now hit `Ctrl-X` to quit, answer `y` to save, and hit enter to keep your filename.
 
 You can now verify that you can connect to the CIF instance with the SDK using the following command:
 
@@ -130,15 +137,18 @@ cif -p
 ```
 Which, when correctly configured and working properly, will return results like:
 ```bash
-roundtrip: 0.152937889099 ms
-roundtrip: 0.0523309707642 ms
+roundtrip: 0.115531921387 ms
+roundtrip: 0.0400021076202 ms
+roundtrip: 0.0375020503998 ms
+roundtrip: 0.0692510604858 ms
 ```
+
 ## Querying CIF
 Now you can search for the entry you generated earlier, looking for your provider name with the following command. Be
  sure to substitute you team number in the provider field. For instance, if you're team number was 50:
  
 ```bash
-cif --tags honeypot --itype ipv4 --last-hour --provider team-50-chn 
+cif --tags honeypot --itype ipv4 --last-hour --provider team-50 
 ```
 
 Trying again without the `--provider` option will show you any other submissions from your classmates!
