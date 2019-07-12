@@ -145,7 +145,7 @@ roundtrip: 0.0692510604858 ms
 
 ## Querying CIF
 Now you can search for the entry you generated earlier, looking for your provider name with the following command. Be
- sure to substitute you team number in the provider field. For instance, if you're team number was 50:
+ sure to substitute your team number in the provider field. For instance, if you're team number was 50:
  
 ```bash
 cif --tags honeypot --itype ipv4 --last-hour --provider team-50 
