@@ -8,8 +8,14 @@ From the menu at the top left, click "Deploy" in the menu bar. Next select the f
 
 ![Screenshot 1](img/hp_deploy_1.png)
 
-Next, Copy the "Deploy Command" from the web interface. Switch to the SSH terminal for your honeypot host and paste the 
-"Deploy Command" into the terminal for workshop-chn-hp-$TEAM.security.duke.edu. The script will generate the 
+Next, Copy the "Deploy Command" from the web interface. Switch to the SSH terminal for your honeypot host and create a 
+configuration directory for this honeypot (in this case, cowrie):
+ 
+``
+mkdir ~/cowrie && cd ~/cowrie
+``
+ 
+Paste the "Deploy Command" into the terminal for the **Honeypot host**. The script will generate the 
 appropriate `docker-compose.yml` and `sysconfig` files, 
 then start the docker-compose process to retrieve and run the images. Your output should look similar to the below:
 
@@ -20,3 +26,8 @@ Once the honeypot has been deployed, switch back the the CHN Server web interfac
 the menu and verify that the honeypot has successfully registered to CHN Server.
 
 ![Screenshot 2](img/hp_deploy_2.png)
+
+Repeat this process for the following honeypots:
+
+- Ubuntu - RDPHoney
+- Ubuntu - UHP

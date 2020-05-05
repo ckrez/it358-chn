@@ -2,15 +2,15 @@ Setting Up Logging for Honeypot Data
 ====================================
 
 ## Connect to the CHN Server Host
-If you do not already have an SSH session established with your workshop-chn-server, SSH into your CHN Server instance.
+If you do not already have an SSH session established with your CHN Server, SSH into your CHN Server instance.
 
 On Mac/Linux:
 ```bash
-ssh -l ubuntu -p 4222 workshop-chn-server-${TEAM}.security.duke.edu 
+ssh -l ubuntu -p 4222 ${GROUP CHN SERVER} 
 ```
 On Windows:
 ```bash
-ssh -l ubuntu -p 4222 workshop-chn-server-$env:TEAM.security.duke.edu 
+ssh -l ubuntu -p 4222 ${GROUP CHN SERVER}
 ```
 
 ## Create hpfeeds-logger.sysconfig
@@ -27,7 +27,9 @@ Answer "n" when asked about logging to a remote CIFv3 server.
 
 Answer "y" when asked about logging to a local file.
 
-Fill in "splunk" for the Logging Format
+Answer "n" when asked about enable intelligence feeds from a CIFv3 server. 
+
+Fill in "json" for the Logging Format
 
 ```text
 Previous chn-server.sysconfig file detected. Do you wish to reconfigure? [y/N]: n
@@ -51,8 +53,7 @@ docker-compose up -d hpfeeds-logger
 ```
 
 ## Checking your setup
-You should now have a new directory `/opt/chnserver/storage/hpfeeds-logs`. List this directory to see a new file, chn-splunk
-.log:
+You should now have a new directory `/opt/chnserver/storage/hpfeeds-logs`. List this directory to see a new file, chn.log:
 
 ```bash
 ls -l /opt/chnserver/storage/hpfeeds-logs
@@ -61,7 +62,7 @@ ls -l /opt/chnserver/storage/hpfeeds-logs
 You can show the contents of this file with the `cat` command:
 
 ```bash
-cat /opt/chnserver/storage/hpfeeds-logs/chn-splunk.log
+cat /opt/chnserver/storage/hpfeeds-logs/chn.log
 ```
 Your file may be empty at the moment. To test your honeypot, we can simulate an attack by trying to log into our new 
 honeypot using SSH to port 2222. 
@@ -72,19 +73,19 @@ Open a new terminal tab/window, and export your team number again; for example i
 export TEAM=50
 ```
 
-Now, attempt to connect to the honeypot SSH port:
+Now, attempt to connect to the honeypot SSH port to trigger an alert:
 
 On Mac/Linux:
 ```bash
-ssh -l attacker -p 2222 workshop-chn-hp-${TEAM}.security.duke.edu 
+ssh -l attacker -p 2222 ${GROUP HP SERVER}  
 ```
 On Windows:
 ```bash
-ssh -l attacker -p 2222 workshop-chn-hp-$env:TEAM.security.duke.edu 
+ssh -l attacker -p 2222 ${GROUP HP SERVER}  
 ```
 
 If you're using Putty, you can use the "Load" button for your normal workshop-chn-hp connection, and change the port 
 before connecting to simulate an attack.
 
-You can now `cat /opt/chnserver/storage/hpfeeds-logs/chn-splunk.log` the log file again, and you should see data about your 
+You can now `cat /opt/chnserver/storage/hpfeeds-logs/chn.log` the log file again, and you should see data about your 
 attempt to log in.
