@@ -1,4 +1,4 @@
-# 2019-quickstartworkshop
+# IT358 CHN Lab
 
 To run this locally:
 # Prerequisites

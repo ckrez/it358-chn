@@ -1,5 +1,5 @@
 site_name: IT358 Honeypot Lab
-site_url: http://localhost
+site_url: https://ckrez.github.io/it358-chn/
 theme: readthedocs
 docs_dir: docs
 markdown_extensions:
