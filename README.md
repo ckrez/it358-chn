@@ -1,4 +1,4 @@
-# Univesity of Scranton - IT358 CHN Lab
+# University of Scranton - IT358 CHN Lab
 
 To run this locally:
 # Prerequisites
