@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="http://localhost/build_server/">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Building CHN Server - IT358 Honeypot Lab</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Building CHN Server";
+    var mkdocs_page_input_path = "build_server.md";
+    var mkdocs_page_url = "/build_server/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> IT358 Honeypot Lab</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Using SSH</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../preparing/">Prepare your hosts</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Building CHN Server</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#preparation">Preparation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#build-chn-server">Build CHN Server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#start-the-server">Start the server</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../first_honeypot/">Deploying Your First Honeypot</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../configuring_logging/">Setting Up Logging for Honeypot Data</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../configuring_cif/">Setting Up Logging to CIFv3</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">IT358 Honeypot Lab</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Building CHN Server</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="building-chn-server">Building CHN Server</h1>
+<p>Connect to your Group's CHN Server host.</p>
+<h3 id="preparation">Preparation</h3>
+<p>Prepare to install CHN Server by creating the directory for CHN Server files. <strong>Accept any defaults during the install process</strong></p>
+<pre><code class="bash">sudo apt install -y python3 python3-pip &amp;&amp; sudo pip3 install validators &amp;&amp; cd /opt &amp;&amp; sudo git clone https://github.com/CommunityHoneyNetwork/chn-quickstart.git chnserver &amp;&amp; sudo chown -R ubuntu:docker /opt/chnserver
+</code></pre>
+
+<h3 id="build-chn-server">Build CHN Server</h3>
+<p>To build CHN Server, simply run the guided_docker_compose.py quickstart script:</p>
+<pre><code class="bash">cd /opt/chnserver &amp;&amp; python3 guided_docker_compose.py
+</code></pre>
+
+<p>Since we're using a valid name on a publicly accessible IP address, we can use Let'sEncrypt to obtain a valid cert. </p>
+<p>When prompted, input the valid domain name for your group's CHN Server instance (refer to the D2L document)</p>
+<p>When prompted, set the Number of Days to "30."</p>
+<p>When prompted, set the Certificate Strategy to "CERTBOT."</p>
+<p>Answer "no" to the questions about logging and CIF. See below for sample output:</p>
+<pre><code class="text">Please enter the domain for your CHN Instance.  Note that this must be a resolvable domain.
+Domain: workshop-chn-server-${TEAM}.security.duke.edu  
+Please enter a Certificate Strategy.  This should be one of:
+
+CERTBOT: Signed certificate by an ACME provider such as LetsEncrypt.  Most folks will want to use this.  You must ensure your URL is accessable from the ACME hosts for verification here
+BYO: Bring Your Own.  Use this if you already have a signed cert, or if you want a real certificate without CertBot
+SELFSIGNED: Generate a simple self-signed certificate
+Certificate Strategy: CERTBOT
+Wrote file to config/sysconfig/chnserver.sysconfig
+Do you wish to enable logging to a remote CIFv3 server? [Y/n]: n
+Do you wish to enable logging to a local file? [Y/n]: n
+Do you wish to enable intelligence feeds from a remote CIF instance? [y/N]: n
+</code></pre>
+
+<h2 id="start-the-server">Start the server</h2>
+<p>Start the CHN Server docker containers with the "-d" flag to run the containers in the background (daemon mode).</p>
+<pre><code class="bash">docker-compose up -d
+</code></pre>
+
+<p>This process should take several minutes as the machine pulls all the relevant images from DockerHub. </p>
+<p>When the process completes and your prompt returns, you should be able to browse to the CHN Server's web console 
+in a web browser and receive a login screen to verify that CHN Server is running. </p>
+<p>Retrieve your CHN Server login credentials by running the following on the Server's SSH console:</p>
+<pre><code>grep SUPERUSER /opt/chnserver/config/sysconfig/chnserver.env
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../first_honeypot/" class="btn btn-neutral float-right" title="Deploying Your First Honeypot">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../preparing/" class="btn btn-neutral" title="Prepare your hosts"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../preparing/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../first_honeypot/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

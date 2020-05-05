@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="http://localhost/configuring_chn/">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Configuring chn - IT358 Honeypot Lab</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Configuring chn";
+    var mkdocs_page_input_path = "configuring_chn.md";
+    var mkdocs_page_url = "/configuring_chn/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> IT358 Honeypot Lab</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Using SSH</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../preparing/">Prepare your hosts</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../build_server/">Building CHN Server</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../first_honeypot/">Deploying Your First Honeypot</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../configuring_logging/">Setting Up Logging for Honeypot Data</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../configuring_cif/">Setting Up Logging to CIFv3</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">IT358 Honeypot Lab</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Configuring chn</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="configuring-and-exploring-chn-server-containers">Configuring and Exploring CHN Server Containers</h1>
+<p><em>Please Note:</em> All the following docker-compose commands must be run from the directory which contains the 
+docker-compose.yml file, in our workshop this should be <code>/opt/chnserver</code>. If you need to change to this directory at 
+any point, simply issue the command:</p>
+<pre><code class="bash">cd /opt/chnserver
+</code></pre>
+
+<h2 id="running-containers">Running Containers</h2>
+<p>Once CHN Server is running, you can check the status of your containers with the following docker-compose command:</p>
+<pre><code class="bash">docker-compose ps
+</code></pre>
+
+<h2 id="seeing-logs">Seeing Logs</h2>
+<p>Full logs for the running Docker containers can be viewed using the following command</p>
+<pre><code class="bash">docker-compose logs
+</code></pre>
+
+<p>This can result in a large number of logs for a long-running container. Some options to help control the amount of 
+data are to specify a container name and/or add a <code>--tail</code> command. For instance, this will show only the logs from 
+the hpfeeds container:</p>
+<pre><code class="bash">docker-compose logs hpfeeds
+</code></pre>
+
+<p>You can also limit the log output to the last X lines for a particular container, for example:</p>
+<pre><code class="bash">docker-compose logs --tail=10 chnserver
+</code></pre>
+
+<p>It is often useful to tail the last few lines of logs and follow the logfile for any new lines, to see new items as 
+they happen. Simply add the <code>-f</code> switch:</p>
+<pre><code class="bash"> docker-compose logs --tail=10 -f chnserver
+</code></pre>
+
+<p>Try switching to your browser, refreshing the tab with the CHN Server web interface up, then switch back to the 
+terminal to see that the logs have updated.</p>
+<p>Use <code>Ctrl-C</code> to stop following the logs and return to your prompt.</p>
+<h2 id="controlling-containers">Controlling Containers</h2>
+<p>You can stop all the running containers using the following command. This will stop the containers but will leave the 
+containers in their current state.</p>
+<pre><code class="bash">docker-compose stop
+</code></pre>
+
+<p>(Take a look at the container state again by running <code>docker-compose ps</code>)</p>
+<p>If you wish to remove a specific container (after stopping it) you can remove it with the <code>docker-compose rm</code> command:</p>
+<pre><code class="bash">docker-compose rm chnserver
+</code></pre>
+
+<p>(Take a look at the container state again by running <code>docker-compose ps</code>)</p>
+<p>You can stop and remove <em>all</em> running containers with the following command. If you have made any changes to the 
+running containers themselves (not recommended!), this will effectively reset the containers.</p>
+<pre><code class="bash">docker-compose down
+</code></pre>
+
+<p>(Take a look at the container state again by running <code>docker-compose ps</code>)</p>
+<p>Now let's bring all our containers back up again:</p>
+<pre><code class="bash">docker-compose up -d
+</code></pre>
+
+<p>This time the process is much faster, as the images are already stored locally. </p>
+<p>(Take a look at the container state again by running <code>docker-compose ps</code>)</p>
+<h2 id="reset-the-web-administrator-password">(Re)set the web administrator password</h2>
+<p>If you didn't set a default admin password in your <code>chnserver.sysconfig</code> file, you can use the following command to 
+set the password, using <code>admin@localhost</code> as the email address.</p>
+<pre><code class="bash">docker-compose exec chnserver python /opt/manual_password_reset.py
+</code></pre>
+
+<p>After setting your password, REFRESH your CHN login screen and log into the web portal using the "admin@localhost" credential with the 
+password you just set at <code>https://workshop-chn-TEAM.security.duke.edu</code> (don't forget to subsitute your number for 
+TEAM!).</p>
+<p><img alt="Screenshot 1" src="../img/chn_deploy_1.png" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
