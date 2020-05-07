@@ -57,6 +57,8 @@ roundtrip: 0.0692510604858 ms
 Now you can search for the entry you generated earlier, looking for your provider name with the following command. Be
  sure to substitute your group number in the provider field. For instance, if you're group number was 50:
  
+**NOTE: All indicators should be treated as malicious. Handle with care (i.e. don't click / visit URLs)**
+ 
 ```bash
 cif --tags honeypot --itype ipv4 --provider group-50
 ```
@@ -64,7 +66,7 @@ cif --tags honeypot --itype ipv4 --provider group-50
 Trying again without the `--provider` option will show you any other submissions from your classmates!
 
 ```bash
-cif --tags honeypot --itype ipv4 --last-hour
+cif --tags honeypot --itype ipv4
 ```
 
 ### Generating a blocking feed
