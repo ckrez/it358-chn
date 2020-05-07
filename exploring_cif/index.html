@@ -159,11 +159,12 @@ roundtrip: 0.0692510604858 ms
 <h2 id="querying-cif">Querying CIF</h2>
 <p>Now you can search for the entry you generated earlier, looking for your provider name with the following command. Be
  sure to substitute your group number in the provider field. For instance, if you're group number was 50:</p>
+<p><strong>NOTE: All indicators should be treated as malicious. Handle with care (i.e. don't click / visit URLs)</strong></p>
 <pre><code class="bash">cif --tags honeypot --itype ipv4 --provider group-50
 </code></pre>
 
 <p>Trying again without the <code>--provider</code> option will show you any other submissions from your classmates!</p>
-<pre><code class="bash">cif --tags honeypot --itype ipv4 --last-hour
+<pre><code class="bash">cif --tags honeypot --itype ipv4
 </code></pre>
 
 <h3 id="generating-a-blocking-feed">Generating a blocking feed</h3>
