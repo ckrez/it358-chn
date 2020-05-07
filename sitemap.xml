@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://ckrez.github.io/it358-chn/</loc>
-     <lastmod>2020-05-04</lastmod>
+     <lastmod>2020-05-07</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ckrez.github.io/it358-chn/preparing/</loc>
-     <lastmod>2020-05-04</lastmod>
+     <lastmod>2020-05-07</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ckrez.github.io/it358-chn/build_server/</loc>
-     <lastmod>2020-05-04</lastmod>
+     <lastmod>2020-05-07</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ckrez.github.io/it358-chn/first_honeypot/</loc>
-     <lastmod>2020-05-04</lastmod>
+     <lastmod>2020-05-07</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ckrez.github.io/it358-chn/configuring_logging/</loc>
-     <lastmod>2020-05-04</lastmod>
+     <lastmod>2020-05-07</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ckrez.github.io/it358-chn/configuring_cif/</loc>
-     <lastmod>2020-05-04</lastmod>
+     <lastmod>2020-05-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://ckrez.github.io/it358-chn/exploring_cif/</loc>
+     <lastmod>2020-05-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://ckrez.github.io/it358-chn/exploring_kibana/</loc>
+     <lastmod>2020-05-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

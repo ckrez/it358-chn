@@ -7,9 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
-  <link rel="canonical" href="https://ckrez.github.io/it358-chn/first_honeypot/">
+  <link rel="canonical" href="https://ckrez.github.io/it358-chn/exploring_kibana/">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Deploying Your First Honeypot - IT358 Honeypot Lab</title>
+  <title>Exploring your data in Kibana - IT358 Honeypot Lab</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Deploying Your First Honeypot";
-    var mkdocs_page_input_path = "first_honeypot.md";
-    var mkdocs_page_url = "/it358-chn/first_honeypot/";
+    var mkdocs_page_name = "Exploring your data in Kibana";
+    var mkdocs_page_input_path = "exploring_kibana.md";
+    var mkdocs_page_url = "/it358-chn/exploring_kibana/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
@@ -59,12 +59,8 @@
                     <li class="toctree-l1"><a class="reference internal" href="../build_server/">Building CHN Server</a>
                     </li>
                 </ul>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Deploying Your First Honeypot</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#deploy-a-cowrie-honeypot">Deploy a Cowrie honeypot</a>
-    </li>
-    </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../first_honeypot/">Deploying Your First Honeypot</a>
                     </li>
                 </ul>
                 <ul>
@@ -79,8 +75,10 @@
                     <li class="toctree-l1"><a class="reference internal" href="../exploring_cif/">Exploring your data in CIFv3</a>
                     </li>
                 </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../exploring_kibana/">Exploring your data in Kibana</a>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Exploring your data in Kibana</a>
+    <ul class="current">
+    </ul>
                     </li>
                 </ul>
       </div>
@@ -104,7 +102,7 @@
     
       
     
-    <li>Deploying Your First Honeypot</li>
+    <li>Exploring your data in Kibana</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -115,27 +113,14 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="deploying-your-first-honeypot">Deploying Your First Honeypot</h1>
-<h2 id="deploy-a-cowrie-honeypot">Deploy a Cowrie honeypot</h2>
-<p>Switch to your web browser and log into the web portal for CHN Server (if your tab isn't already up).</p>
-<p>From the menu at the top left, click "Deploy" in the menu bar. Next select the field labeled "Script" and select the 
-"Ubuntu - Cowrie" option. </p>
-<p><img alt="Screenshot 1" src="../img/hp_deploy_1.png" /></p>
-<p>Next, Copy the "Deploy Command" from the web interface. Switch to the SSH terminal for your honeypot host and create a 
-configuration directory for this honeypot (in this case, cowrie):</p>
-<p><code>mkdir ~/cowrie &amp;&amp; cd ~/cowrie</code></p>
-<p>Paste the "Deploy Command" into the terminal for the <strong>Honeypot host</strong>. The script will generate the 
-appropriate <code>docker-compose.yml</code> and <code>sysconfig</code> files, 
-then start the docker-compose process to retrieve and run the images. Your output should look similar to the below:</p>
-<p><img alt="Screenshot 3" src="../img/hp_deploy_3.png" /></p>
-<p>Once the honeypot has been deployed, switch back the the CHN Server web interface. Select the "Sensor" tab from 
-the menu and verify that the honeypot has successfully registered to CHN Server.</p>
-<p><img alt="Screenshot 2" src="../img/hp_deploy_2.png" /></p>
-<p>Repeat this process for the following honeypots:</p>
-<ul>
-<li>Ubuntu - RDPHoney</li>
-<li>Ubuntu - UHP</li>
-</ul>
+                <h2 id="exploring-your-cif-data-in-kibana">Exploring your CIF data in Kibana</h2>
+<p>Access the Kibana interface using the provided URL. 
+Answer the following questions using the "Discover" and "Visualize" tabs.</p>
+<p><strong>Questions</strong>:
+- Which group generated more data (field: provider)?
+- What were the top 4 data tags (field: tags)?
+- What were the top 5 countries (field: CC) the attacks originated from?
+- What were the top 5 regions (field: region) the attacks originated from?</p>
               
             </div>
           </div>
@@ -143,10 +128,8 @@ the menu and verify that the honeypot has successfully registered to CHN Server.
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../configuring_logging/" class="btn btn-neutral float-right" title="Setting Up Logging for Honeypot Data">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../build_server/" class="btn btn-neutral" title="Building CHN Server"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../exploring_cif/" class="btn btn-neutral" title="Exploring your data in CIFv3"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -172,10 +155,8 @@ the menu and verify that the honeypot has successfully registered to CHN Server.
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../build_server/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../exploring_cif/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../configuring_logging/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
