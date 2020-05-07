@@ -11,3 +11,5 @@ pages:
     - 'Deploying Your First Honeypot': first_honeypot.md
     - 'Setting Up Logging for Honeypot Data': configuring_logging.md
     - 'Setting Up Logging to CIFv3': configuring_cif.md
+    - 'Exploring your data in CIFv3': exploring_cif.md
+    - 'Exploring your data in Kibana': exploring_kibana.md
