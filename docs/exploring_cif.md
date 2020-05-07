@@ -95,5 +95,7 @@ cif --tags honeypot --itype url
 ```
 
 **Questions**:
+
 * What kind of indicators (IPs, Domains, URLs, etc.) were returned?
+
 * What do you think these indicators represent? 
